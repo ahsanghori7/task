@@ -42,7 +42,7 @@ class TaskController extends Controller
 		$interval = $d1->diff($d2);
 		$task->minutes = $interval->i;
 		$task->save();
-		return \Redirect::back()->with("message", "Task has been added");
+		return back()->with("success", "Task has been added");
 	}
 
 }

@@ -12,10 +12,11 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button> 
+                            <strong>{{ $message }}</strong>
+                    </div>
                     @endif
 
                    
@@ -25,16 +26,17 @@
                             {{csrf_field()}}
                             <input type="hidden" name="tz_from" id="time_zone">
                                 <div class="form-group">
+                                    Task
                                     <input type="text" class="form-control" name="task" placeholder="Enter Task" required>
                                 </div>
-
+                                Deadline
                                  <div class="form-group">
                                     <input type="datetime-local" class="form-control" name="deadline" placeholder="Enter Deadline" required>
                                 </div>
                                
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Add</button>
+                                    <button type="submit" class="btn btn-success">Save</button>
                                 </div>
                             </form>
                 </div>
